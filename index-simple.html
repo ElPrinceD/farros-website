@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farros House - Authentic Mediterranean Cuisine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #222222;
+            background: #FFF8F0;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #222222;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #B21F2D;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #222222;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav a:hover {
+            color: #B21F2D;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://source.unsplash.com/1600x900/?grill,restaurant,interior');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin: 0 0.5rem;
+        }
+        
+        .btn-primary {
+            background: #B21F2D;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #8B1A24;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #B21F2D;
+        }
+        
+        .section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #222222;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .menu-card-content {
+            padding: 1.5rem;
+        }
+        
+        .menu-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #222222;
+        }
+        
+        .menu-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .menu-card .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #B21F2D;
+        }
+        
+        .footer {
+            background: #222222;
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .status-banner {
+            background: #B21F2D;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.25rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="status-banner">
+        ✅ Farros House Website is Running Successfully!
+    </div>
+    
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">F</div>
+                <span class="logo-text">Farros House</span>
+            </a>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#locations">Locations</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Farros House</h1>
+            <p>Experience authentic Mediterranean cuisine with a modern twist in the heart of London</p>
+            <a href="#menu" class="btn btn-primary">View Our Menu</a>
+            <a href="#locations" class="btn btn-outline">Find a Location</a>
+        </div>
+    </section>
+
+    <section id="menu" class="section">
+        <h2>Our Most Popular Dishes</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://source.unsplash.com/400x300/?grilled-chicken,peri-peri" alt="Classic Grilled Chicken">
+                <div class="menu-card-content">
+                    <h3>Classic Grilled Chicken</h3>
+                    <p>Tender chicken breast marinated in our signature spices and grilled to perfection</p>
+                    <div class="price">£12.99</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://source.unsplash.com/400x300/?beef-burger,restaurant" alt="Farros Signature Burger">
+                <div class="menu-card-content">
+                    <h3>Farros Signature Burger</h3>
+                    <p>Juicy beef patty with our special sauce, lettuce, tomato, and crispy onions</p>
+                    <div class="price">£15.99</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://source.unsplash.com/400x300/?fries,peri-peri" alt="Crispy Peri-Peri Fries">
+                <div class="menu-card-content">
+                    <h3>Crispy Peri-Peri Fries</h3>
+                    <p>Golden fries tossed in our signature peri-peri seasoning</p>
+                    <div class="price">£4.99</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="section">
+            <h2>Farros House</h2>
+            <p>Authentic Mediterranean cuisine with a modern twist</p>
+            <p>📍 123 Oxford Street, London W1D 2HX</p>
+            <p>📞 +44 20 7123 4567</p>
+            <p>✉️ info@farroshouse.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactivity
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        console.log('🏠 Farros House website loaded successfully!');
+        console.log('🍽️ Ready to serve authentic Mediterranean cuisine!');
+    </script>
+</body>
+</html>
+
+
+
