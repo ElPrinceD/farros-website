@@ -12,7 +12,13 @@ export default defineConfig(({ command }) => ({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: './index.html',
+      },
+    },
   },
+  publicDir: 'public',
 }))
 
 
