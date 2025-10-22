@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CreditCardIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import { Button, Badge } from './ui';
 import clsx from 'clsx';
 
 interface PaymentSelectorProps {
@@ -34,17 +35,17 @@ const PaymentSelector: React.FC<PaymentSelectorProps> = ({ selectedMethod, onMet
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {paymentMethods.map((method) => (
-          <motion.button
+          <Button
             key={method.id}
             onClick={() => onMethodChange(method.id)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            variant={selectedMethod === method.id ? 'primary' : 'outline'}
             className={clsx(
-              'p-4 border-2 rounded-lg text-left transition-all duration-200',
+              'p-4 h-auto text-left justify-start',
               selectedMethod === method.id
                 ? 'border-fh-red bg-red-50 ring-2 ring-red-200'
                 : 'border-gray-300 hover:border-gray-400 hover:bg-gray-50'
             )}
+            animate={true}
           >
             <div className="flex items-start space-x-3">
               <div className={clsx(
@@ -57,12 +58,12 @@ const PaymentSelector: React.FC<PaymentSelectorProps> = ({ selectedMethod, onMet
               <div className="flex-1 min-w-0">
                 <div className="flex items-center space-x-2 mb-1">
                   <h4 className="font-medium text-fh-charcoal">{method.name}</h4>
-                  <span className={clsx(
-                    'text-xs px-2 py-1 rounded-full text-white font-medium',
-                    method.badgeColor
-                  )}>
+                  <Badge
+                    variant={method.badge === 'Secure' ? 'success' : 'info'}
+                    size="sm"
+                  >
                     {method.badge}
-                  </span>
+                  </Badge>
                 </div>
                 <p className="text-sm text-gray-600">{method.description}</p>
               </div>
@@ -78,7 +79,7 @@ const PaymentSelector: React.FC<PaymentSelectorProps> = ({ selectedMethod, onMet
                 )}
               </div>
             </div>
-          </motion.button>
+          </Button>
         ))}
       </div>
 
