@@ -27,7 +27,7 @@ function App() {
 
   return (
     <CartProvider>
-      <Router>
+      <Router basename={import.meta.env.PROD ? "/farros-website" : "/"}>
         <div className="app">
           <Header />
           <main className="main-content">

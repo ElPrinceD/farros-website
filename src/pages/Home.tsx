@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import MenuCard from '../components/MenuCard';
 import AIChat from '../components/AIChat';
 import { menuItems } from '../data/menu';
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
   const { getTotalItems } = useCart();
   const heroRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
@@ -107,14 +109,14 @@ const Home: React.FC = () => {
             </p>
           </div>
           <div className="menu-grid">
-            {popularItems.slice(0, 4).map((item, index) => (
+            {popularItems.slice(0, 6).map((item, index) => (
               <div key={item.id} className="menu-item-wrapper animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
                 <MenuCard item={item} />
               </div>
             ))}
           </div>
           <div className="section-actions animate-on-scroll">
-            <button className="btn-primary" onClick={() => window.location.href = '/menu'}>
+            <button className="btn-primary" onClick={() => navigate('/menu')}>
               View Full Menu
             </button>
           </div>
